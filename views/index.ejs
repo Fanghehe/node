@@ -1,0 +1,39 @@
+<%- include header%>
+
+<div class="container">
+	<div class="left-side col-md-8">
+		<div class="question-list border">
+			<div class="page-header">
+				<h4>近期问题<small class="pull-right">属于huster的问答平台</small></h4>	
+			</div>
+			<ul class="question-list no-padding">
+				<% posts.forEach(function(post,index){%>
+				<li class="question-list-item striped"><a href="/question/<%= post._id %>" class=""><%= post.title%></a><span class="tips pull-right">0个答案&nbsp&nbsp<%=post.time.minute%></span>
+				</li>
+				<% }) %>
+				<li class="question-list-item striped"><a href="#" class="">新鲜出炉，Mongodb和SQLServer性能..</a><span class="tips pull-right">0个答案&nbsp&nbsp2015-04-13 11:22</span>
+				</li>
+				<li class="question-list-item striped"><a href="#" class="">新鲜出炉，Mongodb和SQLServer性能..</a><span class="tips pull-right">0个答案&nbsp&nbsp2015-04-13 11:22</span>
+				</li>
+				<li class="question-list-item striped"><a href="#" class="">新鲜出炉，Mongodb和SQLServer性能..</a><span class="tips pull-right">0个答案&nbsp&nbsp2015-04-13 11:22</span>
+				</li>
+				<li class="question-list-item striped"><a href="#" class="">新鲜出炉，Mongodb和SQLServer性能..</a><span class="tips pull-right">0个答案&nbsp&nbsp2015-04-13 11:22</span>
+				</li>
+			</ul>
+		</div>
+		
+	</div>
+	<div class="right-bar col-md-3 col-md-offset-1">
+		<div class="notification border">
+			<div class="header">公告</div>
+			<p>Bootstrap中文网联合又拍云存储共同推出了开放CDN服务，我们对广泛的前端开源库提供了稳定的存储和带宽的支持，例如Bootstrap、jQuery等。</p>
+		</div>
+		<div class="recommend border second-block">
+			<div class="header">智能推荐</div>
+			<p>Bootstrap中文网联合又拍云存储共同推出了开放CDN服务，我们对广泛的前端开源库提供了稳定的存储和带宽的支持，例如Bootstrap、jQuery等。</p>
+		</div>
+	</div>
+</div>
+
+
+<%- include footer%>
