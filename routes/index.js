@@ -1,8 +1,8 @@
 var sign = require('./sign'),
     site = require('./site'),
-    post = require('./post'),
     topic = require('./topic'),
-    users = require('./users');
+    reply = require('./reply'),
+    users = require('./user');
 
 
 
@@ -15,13 +15,10 @@ module.exports = function (app) {
     //注册
     app.get('/reg', sign.checkNotLogin);
     app.get('/reg', sign.showReg);
+    app.post('/reg',sign.checkUserIsExist);
+    app.post('/reg',sign.checkEmailIsExist);
     app.post('/reg', sign.reg);
-    app.get('/reg_success', function (req, res) {
-        res.render('reg_success', {
-            title: '注册成功',
-            isLogin: !!(req.session.user)
-        });
-    });
+    app.get('/reg_success', sign.regSuccess);
 
     //登录
     app.get('/login', sign.checkNotLogin);
@@ -30,21 +27,21 @@ module.exports = function (app) {
 
     //创建问题
     app.post('/post', sign.checkLogin);
-    app.post('/post', post.post);
+    app.post('/post', topic.postTopic);
+
+    //回复问题
+    app.post('/:t_id/reply', reply.postReply);
 
     //登出
     app.get('/logout', sign.checkLogin);
-    app.get('/logout', function (req, res) {
-        req.session.user = null;
-        res.redirect('/');//登出成功后跳转到主页
-    });
+    app.get('/logout', sign.logout);
 
     //问题详情
-    app.get('/question/:t_id', topic.showTopic);
+    app.get('/topic/:t_id', topic.showTopic);
 
     //我的
-    app.get('/my', sign.checkLogin);
-    app.get('/my', users.showUsers);
+    app.get('/user/', sign.checkLogin);
+    app.get('/user/', users.showUsers);
 
 
 };

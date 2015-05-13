@@ -7,8 +7,8 @@
 				<h4>近期问题<small class="pull-right">属于huster的问答平台</small></h4>	
 			</div>
 			<ul class="question-list no-padding">
-				<% posts.forEach(function(post,index){%>
-				<li class="question-list-item striped"><a href="/question/<%= post._id %>" class=""><%= post.title%></a><span class="tips pull-right">0个答案&nbsp&nbsp<%=post.time.minute%></span>
+				<% topics.forEach(function(topic,index){%>
+				<li class="question-list-item striped"><a href="/topic/<%= topic._id %>" class=""><%= topic.title%></a><span class="tips pull-right">0个答案&nbsp&nbsp<%=topic.time.minute%></span>
 				</li>
 				<% }) %>
 				<li class="question-list-item striped"><a href="#" class="">新鲜出炉，Mongodb和SQLServer性能..</a><span class="tips pull-right">0个答案&nbsp&nbsp2015-04-13 11:22</span>

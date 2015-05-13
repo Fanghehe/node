@@ -6,8 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var settings = require('./settings');
-var users = require('./routes/users');
+var settings = require('./config');
+var users = require('./routes/user');
 var flash = require('connect-flash');
 
 var app = express();
@@ -27,11 +27,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
-  secret: settings.cookieSecret,
+  secret: settings.session_secret,
   key: settings.db,//cookie name
   cookie: {maxAge: 1000 * 60 * 60 * 24 * 30},//30 days
   store: new MongoStore({
-    db: settings.db,
+    db: settings.db_name,
     host: settings.host,
     port: settings.port
   })

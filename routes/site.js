@@ -1,13 +1,15 @@
-var Post = require('../models/post');
+var Topic = require('../proxy/topic');
+
 exports.index = function (req,res) {
-    Post.get(null, function (err, posts) {
-        if (err) {
-            posts = [];
-        }
+    Topic.getTopicByOrder(function(err,docs){
+        docs.forEach(function(doc,index,arr){
+        });
+        console.log(req.session.user);
         res.render('index', {
             title: '首页',
-            posts: posts,
+            topics: docs,
             isLogin: !!(req.session.user),
+            user:req.session.user,
             success: req.flash('success').toString(),
             error: req.flash('error').toString()
         });
