@@ -4,19 +4,18 @@
 	<div class="left-side col-md-8">
 		<div class="question-list border">
 			<ul class="nav nav-tabs no-bottom-padding">
-			  <li role="presentation" class="active"><a href="#">我的提问</a></li>
-			  <li role="presentation" class="active"><a href="#">我的回答</a></li>
-			  <li role="presentation" class="active"><a href="#">我的收藏</a></li>
+			  <li role="presentation" <% if(tabs[0]){%>class="active"<%}%>><a href="./questions">近期提问</a></li>
+			  <li role="presentation" <% if(tabs[1]){%>class="active"<%}%>><a href="./answers">近期回答</a></li>
+			  <li role="presentation" <% if(tabs[2]){%>class="active"<%}%>><a href="./collections">我的收藏</a></li>
 			</ul>
 			<ul class="question-list no-padding">
-				<li class="question-list-item striped"><a href="#" class="">新鲜出炉，Mongodb和SQLServer性能..</a><span class="tips pull-right">30分钟前</span>
+				<% for(var i=0;i<topics.length;i++){%>
+				<li class="question-list-item striped">
+					<a href="/topic/<%= topics[i]._id%>" class="">
+						<%= topics[i].title %>
+						</a><span class="tips pull-right"><%= topics[i].posttime %>前</span>
 				</li>
-				<li class="question-list-item striped"><a href="#" class="">新鲜出炉，Mongodb和SQLServer性能..</a><span class="tips pull-right">3小时前</span>
-				</li>
-				<li class="question-list-item striped"><a href="#" class="">新鲜出炉，Mongodb和SQLServer性能..</a><span class="tips pull-right">1天前</span>
-				</li>
-				<li class="question-list-item striped"><a href="#" class="">新鲜出炉，Mongodb和SQLServer性能..</a><span class="tips pull-right">3年前</span>
-				</li>
+				<% } %>
 			</ul>
 		</div>
 		
@@ -26,13 +25,7 @@
 			<div class="header">个人信息</div>
 			<div class="user-info">
 				<img src="/images/default.jpg" alt="">
-				<div class="button-wrap">
-					<button type="button" class="btn btn-primary">修改头像</button>
-				</div>
 				<p class="user-name">青你个葱</p>
-				<div class="button-wrap">
-					<button type="button" class="btn btn-primary">修改昵称</button>
-				</div>
 			</div>
 		</div>
 	</div>

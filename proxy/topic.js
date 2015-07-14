@@ -3,7 +3,7 @@ var Topic = models.Topic;
 
 
 exports.getTopicByOrder = function(callback){
-	Topic.find({},null,{sort:{"time.date":-1}},callback);
+	Topic.find({},null,{sort:{weight:-1}},callback);
 };
 
 /**
@@ -32,4 +32,12 @@ exports.newTopicAndSave = function(author_id,title,ctx,time,callback){
 	topic.ctx = ctx;
 	topic.time = time;
 	topic.save(callback)
+};
+
+exports.getTopicsByMixed = function(query,callback){
+	Topic.find({ $or :[{'title':{$regex:query}},{'ctx':query}]},callback);
+};
+
+exports.removeTopicByName = function(title,callback){
+	Topic.findOneAndRemove({'title':title},callback);
 };

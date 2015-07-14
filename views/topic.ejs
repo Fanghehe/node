@@ -3,14 +3,19 @@
 <div class="container">
 		<div class="left-side col-md-8">
 			<div class="question-detail border">
-				<div class="page-header">
-					<h4><%= topic.title%></h4>
-					<small>
+				<div class="page-header clearfix">
+					<h4 class="topic-head"><%= topic.title%></h4>
+					<% if(isStared == -1){ %>
+					<button type="button" class="btn btn-success btn-collect" id="btn-collect" data-action="add" data-id="<%= topic._id%>">加入收藏</button>
+					<% }else{ %>
+					<button type="button" class="btn btn-danger btn-collect" id="btn-collect" data-action="del" data-id="<%= topic._id%>">取消收藏</button>
+					<% } %>
+					<small class="topic-info">
 						<span class="question-info">发布于 <%= topic.posttime %>前&nbsp&nbsp</span>
 						<span class="question-info">作者 <a href="#"><%= author.username %></a>&nbsp&nbsp</span>
 						<span class="question-info"><%= topic.visit_count %> 次浏览&nbsp&nbsp</span>
 						<span class="question-info"><%= replies.length %> 个答案&nbsp&nbsp</span>
-					</small>	
+					</small>
 				</div>
 				<div class="markdown-text">
 					<%- topic.ctx %>
@@ -31,7 +36,6 @@
 							<span class="replay-time"><small><%= i+1 %>楼•<%= replies[i].time %>前</small></span>
 						</span>
 						<span class="user-action">
-							
 						</span>
 					</div>
 					<div class="replay-content">
@@ -39,24 +43,7 @@
 					</div>
 				</div>
 				<% } %>
-				<div class="question-comment-item">
-					<div class="user-content">
-						<a href="#" class="user-avatar">
-							<img src="/images/default.jpg" alt="">
-						</a>
-						<span class="user-info">
-							<a href="#" class="user-name">Tim</a>
-							<span class="replay-time"><small>15楼•22天前</small></span>
-						</span>
-						<span class="user-action">
-							
-						</span>
-					</div>
-					<div class="replay-content">
-						Bootstrap中文网联合又拍云存储共同推出了开放CDN服务，我们对广泛的前端开源库提供了稳定的存储和带宽的支持，例如Bootstrap、jQuery等。
-					</div>
-				</div>
-				<% if(isLogin){ %>
+				<% if(isLogin&&user.isAdmin){ %>
 				<form action="/<%= topic._id%>/reply" method="POST">
 					<div class="form-group">
 						<label for="replay-text" class="control-label">回复:</label>
@@ -78,5 +65,5 @@
 			</div>
 		</div>
 </div>
-
+<script src="/javascripts/topic.js"></script>
 <%- include footer%>

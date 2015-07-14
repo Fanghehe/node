@@ -11,7 +11,9 @@ mongoose.connect(config.db,function (err) {
 require('./user');
 require('./topic');
 require('./reply');
+require('./notice');
 
 exports.User = mongoose.model('User');
 exports.Topic = mongoose.model('Topic');
 exports.Reply = mongoose.model('Reply');
+exports.Notice = mongoose.model('Notice');

@@ -7,6 +7,7 @@ var TopicSchema = new Schema({
     title : {type:String},
     ctx : {type:String},
     visit_count : {type:Number,default:0},
+    weight : {type:Number,default:0},
     time : {
         date:{type:Date,default:Date.now},
         year: {type:String},

@@ -1,8 +1,76 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
 
-a {
-  color: #00B7FF;
+.topic-head{
+  display: inline-block;
+}
+small.topic-info{
+  display: block;
+}
+.btn-collect{
+  float:right;
+  margin-top: 10px;
+}
+.modal-dialog{
+  width: 720px;
+}
+input[type=file]{
+  display:block;
+}
+#input-search{
+  width:100%;
+}
+.input-search-wrap,.input-search{
+  width:172px;
+}
+.admin-login-wrap{
+  margin-top: 100px;
+  padding: 20px;
+  border-radius: 10px;
+  width: 500px;
+  background-color: #ffffff;
+}
+.admin-login-title{
+  margin: 0 auto 40px;
+  text-align: center;
+}
+.nav-stacked{
+  float: left;
+  margin-top: 20px;
+  width: 200px;
+}
+.admin-form-wrap{
+  margin: 20px 0 0 300px;
+  overflow: hidden;
+}
+div.submit-btn-wrap{
+  line-height: 32px;
+}
+li.bui-list-item:hover{
+    background-color: #f9f9f9;
+}
+#toast-item{
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin: -100px 0 0 -100px;
+  padding: 10px;
+  width: 180px;
+  height: 50px;
+  color: white;
+  text-align: center;
+  line-height: 30px;
+  font-size: 20px;
+  border-radius: 5px;
+  background-color: rgba(0,0,0,.8);
+}
+span.has-error{
+  padding: 6px 12px;
+  line-height: 18px;
+  color:#a94442;
+}
+#admin-notice{
+  display: block;
+  margin-bottom: 20px;
+  height: 100px;
+  width: 300px;
 }

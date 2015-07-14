@@ -1,0 +1,42 @@
+<%- include header%>
+
+<div class="container clearfix small-container">
+    <form action="/modifyPsw" class="form-horizontal form-small pull-left" method="POST">
+        <div class="form-group">
+            <label for="inputAccount" class="col-md-3 control-label">用户名</label>
+            <div class="col-md-7">
+                <input type="text" class="form-control" id="inputAccount" placeholder="用户名" name="username">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPasswordOld" class="col-md-3 control-label">原密码</label>
+            <div class="col-md-7">
+                <input type="password" class="form-control" id="inputPasswordOld" placeholder="原密码" name="passwordOld">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPasswordNew" class="col-md-3 control-label">新密码</label>
+            <div class="col-md-7">
+                <input type="password" class="form-control" id="inputPasswordNew" placeholder="新密码" name="passwordNew">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword" class="col-md-3 control-label">确认新密码</label>
+            <div class="col-md-7">
+                <input type="password" class="form-control" id="inputPasswordNewR" placeholder="确认新密码" name="passwordNewR">
+            </div>
+        </div>
+        <div class="form-group submit-btn-wrap">
+            <label for="inputAccount" class="col-md-3 control-label"></label>
+            <div class="col-md-7">
+                <button type="submit" class="btn btn-primary pull-left center-block">确认修改</button>
+                <% if(!!error){ %>
+                <span class="has-error"><%= error%></span>
+                <% } %>
+            </div>
+        </div>
+    </form>
+    <h2 class="pull-right">属于Huster的校园问答平台</h2>
+</div>
+
+<%- include footer%>

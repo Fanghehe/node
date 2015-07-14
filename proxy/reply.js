@@ -22,7 +22,7 @@ exports.getRepliesByTopicId = function(id,callback){
 };
 
 exports.getRepliesByAuthorId = function(id,callback){
-    Reply.find({author_id:id},null,{sort:{time:-1}},callback);
+    Reply.find({author_id:id},null,{sort:{time_date:-1}},callback);
 };
 
 exports.newReplyAndSave = function(author_id,topic_id,ctx,callback){

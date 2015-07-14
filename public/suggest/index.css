@@ -1,0 +1,27 @@
+.bui-overlay{
+    position: absolute;
+}
+.bui-picker{
+    z-index:1200;
+}
+.bui-select-list {
+    background-color: #fff;
+    border: 1px solid transparent;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    background-clip: padding-box;
+}
+.bui-select-list ul {
+    margin: 10px 0;
+    padding-left: 0;
+    list-style: none;
+}
+.bui-select-list .bui-list-item {
+    display: block;
+    padding: 3px 20px;
+    color: #333333;
+    white-space: nowrap;
+    cursor: pointer;
+}
