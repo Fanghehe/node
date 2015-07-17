@@ -21,7 +21,7 @@ var config = {
 		port:25,
 		auth:{
 			user:'shang4000@163.com',
-			pass:'wang1993816'
+			pass:''
 		}
 
 	}
